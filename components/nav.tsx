@@ -1,15 +1,9 @@
-import { Box, Button, Spacer } from '@chakra-ui/react';
-import { useState } from 'react';
+import { Box, Spacer } from '@chakra-ui/react';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 import AppIcon from './appIcon';
 import SearchBar from './searchbar';
 
 export default function Nav() {
-    const [isLogin, setIsLogin] = useState(false);
-
-    function handleIsLogin() {
-        setIsLogin(!isLogin);
-    }
-
     return (
         <Box 
             p="3"
@@ -27,14 +21,7 @@ export default function Nav() {
             </Box>
             <Spacer />
             <Box mx="2">
-                <Button 
-                    isLoading={isLogin}
-                    colorScheme="white"
-                    variant="outline"
-                    onClick={handleIsLogin}
-                >
-                    Connect Wallet
-                </Button>
+                <ConnectButton showBalance={true} />
             </Box>
         </Box>
     );
